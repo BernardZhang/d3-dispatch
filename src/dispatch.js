@@ -13,7 +13,8 @@ function Dispatch(_) {
 }
 
 function parseTypenames(typenames, types) {
-  return typenames.trim().split(/^|\s+/).map(function(t) {
+  // return (name + "").trim().split(/^|\s+/).every(function(t) {
+  return (name + "").trim().split(/\s+/).filter(function(t) { return t; }).every(function(t) {
     var name = "", i = t.indexOf(".");
     if (i >= 0) name = t.slice(i + 1), t = t.slice(0, i);
     if (t && !types.hasOwnProperty(t)) throw new Error("unknown type: " + t);
